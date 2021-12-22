@@ -1,9 +1,6 @@
 name: Documentation Request
 description: Request a documentation addition or improvement.
-title: "[DOC]: "
 labels: ["documentation"]
-assignees:
-  - tadmccorkle
 body:
   - type: textarea
     id: documentation-request
