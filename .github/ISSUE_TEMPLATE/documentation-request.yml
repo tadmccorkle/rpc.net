@@ -1,7 +1,7 @@
 name: Documentation Request
 description: Request a documentation addition or improvement.
 title: "[DOC]: "
-labels: ["documentation", "triage"]
+labels: ["documentation"]
 assignees:
   - tadmccorkle
 body:

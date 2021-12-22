@@ -1,7 +1,7 @@
 name: Feature Request
 description: Request a new feature or a feature enhancement.
 title: "[FEAT]: "
-labels: ["enhancement", "triage"]
+labels: ["enhancement"]
 assignees:
   - tadmccorkle
 body:
