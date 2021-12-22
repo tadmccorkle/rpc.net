@@ -5,5 +5,4 @@ THIS_PULL_REQUEST_DOES_WHAT
 
 Reviewers:
 
-- @azebell
 - @tadmccorkle

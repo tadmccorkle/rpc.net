@@ -1,0 +1,52 @@
+name: Feature Request
+description: Request a new feature or a feature enhancement.
+title: "[FEAT]: "
+labels: ["enhancement", "triage"]
+assignees:
+  - tadmccorkle
+body:
+  - type: textarea
+    id: related-problem
+    attributes:
+      label: Related problem
+      description: Is this feature request related to a problem?
+      placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when...
+    validations:
+      required: false
+  - type: textarea
+    id: requested-feature
+    attributes:
+      label: Feature description
+      description: Describe the feature you'd like added or changed.
+      placeholder: A clear and concise description of what you want to happen...
+    validations:
+      required: true
+  - type: textarea
+    id: considered-alternatives
+    attributes:
+      label: Alternatives
+      description: Describe any alternative solutions or features you've considered.
+      placeholder: A clear and concise description of alternatives...
+    validations:
+      required: false
+  - type: dropdown
+    id: affected-libraries
+    attributes:
+      label: Affected libraries
+      description: Which libraries will this change? Would it be a new library?
+      options:
+        - Tad.Test
+        - Tad.Test.LibA
+        - Tad.Test.LibB
+        - New Library
+      multiple: true
+    validations:
+      required: false
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Anything else you'd like to mention?
+      placeholder: Add any other context here...
+    validations:
+      required: false

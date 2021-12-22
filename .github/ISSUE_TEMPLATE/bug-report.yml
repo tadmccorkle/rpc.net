@@ -33,9 +33,9 @@ body:
       label: Affected libraries
       description: Which libraries does this bug affect?
       options:
-        - Gtri.Rpc
-        - Gtri.Rpc.RabbitMQ
-        - Gtri.Rpc.JsonRpc
+        - Tad.Test
+        - Tad.Test.LibA
+        - Tad.Test.LibB
       multiple: true
     validations:
       required: false

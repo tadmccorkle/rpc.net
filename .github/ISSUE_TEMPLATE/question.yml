@@ -1,0 +1,26 @@
+name: Question
+description: Ask a question.
+title: "[QUESTION]: "
+labels: ["question"]
+assignees:
+  - tadmccorkle
+body:
+  - type: textarea
+    id: the-question
+    attributes:
+      label: What do you need to know?
+      placeholder: Your question...
+    validations:
+      required: true
+  - type: dropdown
+    id: related-libraries
+    attributes:
+      label: Related libraries
+      description: Which libraries is this question related to?
+      options:
+        - Tad.Test
+        - Tad.Test.LibA
+        - Tad.Test.LibB
+      multiple: true
+    validations:
+      required: false

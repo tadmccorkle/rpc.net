@@ -1,0 +1,27 @@
+name: Documentation Request
+description: Request a documentation addition or improvement.
+title: "[DOC]: "
+labels: ["documentation", "triage"]
+assignees:
+  - tadmccorkle
+body:
+  - type: textarea
+    id: documentation-request
+    attributes:
+      label: Documentation request
+      description: What needs to be better documented?
+      placeholder: Your request...
+    validations:
+      required: true
+  - type: dropdown
+    id: related-libraries
+    attributes:
+      label: Related libraries
+      description: Which libraries does this documentation update concern?
+      options:
+        - Tad.Test
+        - Tad.Test.LibA
+        - Tad.Test.LibB
+      multiple: true
+    validations:
+      required: false
