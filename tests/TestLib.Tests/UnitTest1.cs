@@ -14,7 +14,6 @@ namespace TestLib.Tests
             testClass.MyMethod((bool)testClass.MyObj);
             testClass.MyMethod(false, true);
             testClass.MyMethod(true, true);
-            Assert.Fail(); // test build failure
         }
     }
 }
