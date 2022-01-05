@@ -14,6 +14,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+        source-url: https://nuget.pkg.github.com/tadmccorkle/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build Projects
       run: dotnet build /p:Configuration=CI
     - name: Test Projects
@@ -29,14 +32,6 @@ jobs:
     - name: Merge Test Coverage
       run: lcov-result-merger "tests/**/coverage*.info" "lcov.info"
 
-    # build docs
-    - name: Install DocFX with Chocolatey
-      uses: crazy-max/ghaction-chocolatey@v1.6.0
-      with:
-        args: install docfx
-    - name: DocFX Build
-      run: docfx docfx.json
-
     # upload code coverage
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@1.1.3
@@ -44,11 +39,31 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: ./lcov.info
 
-    # publish nuget packages
+    # publish updated nuget packages
     - name: Publish the package to GPR
-      run: dir "src\**\bin\CI\*.nupkg" -Recurse | %{dotnet nuget push $PSItem.FullName}
+      run: |
+        $nupkgs = dir "src\**\bin\CI\*.nupkg" -Recurse
+        foreach ($nupkg in $nupkgs) {
+          $nupkgName = ($nupkg.BaseName -split '\.\d+\.\d+\.\d+$')[0]
+          $nupkgVersion = $nupkg.BaseName -match '\d+\.\d+\.\d+$' | %{ $Matches[0] }
+          try {
+            $publishedVersions = Invoke-WebRequest -Uri "https://nuget.pkg.github.com/tadmccorkle/v3-flatcontainer/$nupkgName/index.json").Content
+            if ( -not ($publishedVersions -match "$version" ) {
+              dotnet nuget push $nupkg.FullName
+            }
+          }
+          catch {
+            dotnet nuget push $nupkg.FullName
+          }
+        }
 
-    # publish docs
+    # build and publish docs
+    - name: Install DocFX with Chocolatey
+      uses: crazy-max/ghaction-chocolatey@v1.6.0
+      with:
+        args: install docfx
+    - name: DocFX Build
+      run: docfx docfx.json
     - name: Publish to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:

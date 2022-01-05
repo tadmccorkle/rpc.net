@@ -1,6 +1,6 @@
 on:
   pull_request
-name: pull_request
+name: pull-request
 jobs:
   build-and-test:
     runs-on: windows-latest
@@ -27,6 +27,13 @@ jobs:
     - name: Merge Test Coverage
       run: lcov-result-merger "tests/**/coverage*.info" "lcov.info"
 
+    # upload code coverage
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@1.1.3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./lcov.info
+
     # build docs
     - name: Install DocFX with Chocolatey
       uses: crazy-max/ghaction-chocolatey@v1.6.0
@@ -34,10 +41,3 @@ jobs:
         args: install docfx
     - name: DocFX Build
       run: docfx docfx.json
-
-    # upload code coverage
-    - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@1.1.3
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./lcov.info
