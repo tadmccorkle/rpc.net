@@ -47,8 +47,8 @@ jobs:
           $nupkgName = ($nupkg.BaseName -split '\.\d+\.\d+\.\d+$')[0]
           $nupkgVersion = $nupkg.BaseName -match '\d+\.\d+\.\d+$' | %{ $Matches[0] }
           try {
-            $publishedVersions = Invoke-WebRequest -Uri "https://nuget.pkg.github.com/tadmccorkle/v3-flatcontainer/$nupkgName/index.json").Content
-            if ( -not ($publishedVersions -match "$version" ) {
+            $publishedVersions = Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/$nupkgName/index.json").Content
+            if ( -not ($publishedVersions -match "$version" ) ) {
               dotnet nuget push $nupkg.FullName
             }
           }
