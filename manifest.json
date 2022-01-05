@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TestLib.Class1.html",
-          "hash": "EBwPmKa9P9o4hQ46l96EnZITPtGCSheDnFGzi9mxTVw="
+          "hash": "QcHZDjuMnNG53jb7UZGV002RToEEbnwcV8/od9gVXVI="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/TestLib.Other.Class1.html",
-          "hash": "fxvWyb0lAQezx3w75cw8lUYpS1kcn3oZnGX1H6sk4DU="
+          "hash": "hOoxL7bjxxwbhVuwvPV348fy4fhKetsyCErBtyCRVlI="
         }
       },
       "is_incremental": false,
