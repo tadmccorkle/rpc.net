@@ -1,0 +1,8 @@
+- name: Home
+  href: README.md
+- name: API
+  href: obj/api/
+- name: Source
+  href: https://github.com/tadmccorkle/rpc.net
+- name: NuGet
+  href: index.md # TODO
