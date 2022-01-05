@@ -1,0 +1,27 @@
+{
+  "api/TestLib.Class1.html": {
+    "href": "api/TestLib.Class1.html",
+    "title": "Class Class1 | TestLib",
+    "keywords": "Class Class1 This is a summary Inheritance System.Object Class1 Namespace : TestLib Assembly : TestLib.dll Syntax public class Class1 Remarks And some remarks. Properties | Improve this Doc View Source MyObj This is an object. Methods | Improve this Doc View Source MyMethod(Boolean, Boolean) This method does things. Properties (Detailed) | Improve this Doc View Source MyObj This is an object. Declaration public object MyObj { get; set; } Methods (Detailed) | Improve this Doc View Source MyMethod(Boolean, Boolean) This method does things. Declaration public int MyMethod(bool boolean, bool other = false) Parameters Type Name Description System.Boolean boolean A parameter. System.Boolean other Returns Type Description System.Int32"
+  },
+  "api/TestLib.html": {
+    "href": "api/TestLib.html",
+    "title": "Namespace TestLib | TestLib",
+    "keywords": "Namespace TestLib Classes Class1 This is a summary"
+  },
+  "api/TestLib.Other.Class1.html": {
+    "href": "api/TestLib.Other.Class1.html",
+    "title": "Class Class1 | TestLib",
+    "keywords": "Class Class1 This is a summary of the class. Inheritance System.Object Class1 Namespace : TestLib.Other Assembly : TestLib.Other.dll Syntax public class Class1 Remarks And some remarks. Methods | Improve this Doc View Source MyMethod(Boolean) This method does things. Methods (Detailed) | Improve this Doc View Source MyMethod(Boolean) This method does things. Declaration public int MyMethod(bool boolean) Parameters Type Name Description System.Boolean boolean A parameter. Returns Type Description System.Int32"
+  },
+  "api/TestLib.Other.html": {
+    "href": "api/TestLib.Other.html",
+    "title": "Namespace TestLib.Other | TestLib",
+    "keywords": "Namespace TestLib.Other Classes Class1 This is a summary of the class."
+  },
+  "README.html": {
+    "href": "README.html",
+    "title": "rpc.net | TestLib",
+    "keywords": "rpc.net"
+  }
+}

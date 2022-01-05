@@ -1,0 +1,66 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: TestLib
+  name: TestLib
+  href: api/TestLib.html
+  commentId: N:TestLib
+  fullName: TestLib
+  nameWithType: TestLib
+- uid: TestLib.Class1
+  name: Class1
+  href: api/TestLib.Class1.html
+  commentId: T:TestLib.Class1
+  fullName: TestLib.Class1
+  nameWithType: Class1
+- uid: TestLib.Class1.MyMethod(System.Boolean,System.Boolean)
+  name: MyMethod(Boolean, Boolean)
+  href: api/TestLib.Class1.html#TestLib_Class1_MyMethod_System_Boolean_System_Boolean_
+  commentId: M:TestLib.Class1.MyMethod(System.Boolean,System.Boolean)
+  fullName: TestLib.Class1.MyMethod(System.Boolean, System.Boolean)
+  nameWithType: Class1.MyMethod(Boolean, Boolean)
+- uid: TestLib.Class1.MyMethod*
+  name: MyMethod
+  href: api/TestLib.Class1.html#TestLib_Class1_MyMethod_
+  commentId: Overload:TestLib.Class1.MyMethod
+  isSpec: "True"
+  fullName: TestLib.Class1.MyMethod
+  nameWithType: Class1.MyMethod
+- uid: TestLib.Class1.MyObj
+  name: MyObj
+  href: api/TestLib.Class1.html#TestLib_Class1_MyObj
+  commentId: P:TestLib.Class1.MyObj
+  fullName: TestLib.Class1.MyObj
+  nameWithType: Class1.MyObj
+- uid: TestLib.Class1.MyObj*
+  name: MyObj
+  href: api/TestLib.Class1.html#TestLib_Class1_MyObj_
+  commentId: Overload:TestLib.Class1.MyObj
+  isSpec: "True"
+  fullName: TestLib.Class1.MyObj
+  nameWithType: Class1.MyObj
+- uid: TestLib.Other
+  name: TestLib.Other
+  href: api/TestLib.Other.html
+  commentId: N:TestLib.Other
+  fullName: TestLib.Other
+  nameWithType: TestLib.Other
+- uid: TestLib.Other.Class1
+  name: Class1
+  href: api/TestLib.Other.Class1.html
+  commentId: T:TestLib.Other.Class1
+  fullName: TestLib.Other.Class1
+  nameWithType: Class1
+- uid: TestLib.Other.Class1.MyMethod(System.Boolean)
+  name: MyMethod(Boolean)
+  href: api/TestLib.Other.Class1.html#TestLib_Other_Class1_MyMethod_System_Boolean_
+  commentId: M:TestLib.Other.Class1.MyMethod(System.Boolean)
+  fullName: TestLib.Other.Class1.MyMethod(System.Boolean)
+  nameWithType: Class1.MyMethod(Boolean)
+- uid: TestLib.Other.Class1.MyMethod*
+  name: MyMethod
+  href: api/TestLib.Other.Class1.html#TestLib_Other_Class1_MyMethod_
+  commentId: Overload:TestLib.Other.Class1.MyMethod
+  isSpec: "True"
+  fullName: TestLib.Other.Class1.MyMethod
+  nameWithType: Class1.MyMethod
