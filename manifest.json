@@ -13,12 +13,15 @@
       "is_incremental": false
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "README.md",
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "wyZkJ3NGEAOZ0GZ+EmCF4u0XhnmJ5PFBJ24y7LU2ECc="
+          "hash": "6k16YGfIbFyyZLOcYPItuC1Z+Fx5gJsxsOPd5CnWHCQ="
         }
       },
       "is_incremental": false,
