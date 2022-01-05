@@ -4,48 +4,30 @@ on:
       - main
 name: publish
 jobs:
-
-  package-upload:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        project:
-        - TestLib
-        - TestLib.Other
-    steps:
-    - uses: actions/checkout@v2
-
-    # build
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-        source-url: https://nuget.pkg.github.com/tadmccorkle/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build projects
-      run: dotnet build --no-restore /p:Configuration=CI
-
-    # publish nuget package
-    - name: Publish the package to GPR
-      run: dotnet nuget push src/${{ matrix.project }}/bin/CI/*.nupkg
-
-  documentation-upload:
+  publish:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
 
-    # build
+    # build and test
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build projects
-      run: dotnet build --no-restore /p:Configuration=CI
+    - name: Build Projects
+      run: dotnet build /p:Configuration=CI
+    - name: Test Projects
+      run: dotnet test --no-build /p:Configuration=CI /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+
+    # merge lcov results
+    - name: Set Up NPM
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install 'lcov-result-merger'
+      run: npm i -g lcov-result-merger
+    - name: Merge Test Coverage
+      run: lcov-result-merger "tests/**/coverage*.info" "lcov.info"
 
     # build docs
     - name: Install DocFX with Chocolatey
@@ -54,6 +36,17 @@ jobs:
         args: install docfx
     - name: DocFX Build
       run: docfx docfx.json
+
+    # upload code coverage
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@1.1.3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./lcov.info
+
+    # publish nuget packages
+    - name: Publish the package to GPR
+      run: dir "src\**\bin\CI\*.nupkg" -Recurse | %{dotnet nuget push $PSItem.FullName}
 
     # publish docs
     - name: Publish to GitHub Pages
