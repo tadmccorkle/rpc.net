@@ -16,7 +16,7 @@
         {
             if (boolean)
             {
-                if (false)
+                if (!boolean)
                 {
                     System.Console.WriteLine("This is testing that code coverage works.");
                 }
