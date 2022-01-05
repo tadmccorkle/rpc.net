@@ -47,7 +47,7 @@ jobs:
           $nupkgVersion = $nupkg.BaseName -match '\d+\.\d+\.\d+$' | %{ $Matches[0] }
           try {
             $publishedVersions = (Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/$nupkgName/index.json").Content
-            if ( $publishedVersions -match "$version" ) {
+            if ( $publishedVersions -match "$nupkgVersion" ) {
               continue
             }
           } catch { }
