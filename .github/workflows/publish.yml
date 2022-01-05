@@ -14,9 +14,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        source-url: https://nuget.pkg.github.com/tadmccorkle/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build Projects
       run: dotnet build /p:Configuration=CI
     - name: Test Projects
@@ -41,6 +38,8 @@ jobs:
 
     # publish updated nuget packages
     - name: Publish the package to GPR
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       run: |
         $nupkgs = dir "src\**\bin\CI\*.nupkg" -Recurse
         foreach ($nupkg in $nupkgs) {
@@ -48,13 +47,11 @@ jobs:
           $nupkgVersion = $nupkg.BaseName -match '\d+\.\d+\.\d+$' | %{ $Matches[0] }
           try {
             $publishedVersions = (Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/$nupkgName/index.json").Content
-            if ( -not ( $publishedVersions -match "$version" ) ) {
-              dotnet nuget push $nupkg.FullName
+            if ( $publishedVersions -match "$version" ) {
+              continue
             }
-          }
-          catch {
-            dotnet nuget push $nupkg.FullName
-          }
+          } catch { }
+          dotnet nuget push -k $env:NUGET_API_KEY -s https://api.nuget.org/v3/index.json $nupkg.FullName
         }
 
     # build and publish docs
