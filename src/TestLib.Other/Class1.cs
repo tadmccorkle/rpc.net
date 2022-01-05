@@ -16,6 +16,10 @@
         {
             if (boolean)
             {
+                if (false)
+                {
+                    System.Console.WriteLine("This is testing that code coverage works.");
+                }
                 return 1;
             }
             return 2;
