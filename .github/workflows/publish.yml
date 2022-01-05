@@ -1,0 +1,63 @@
+on:
+  push:
+    branches:
+      - main
+name: publish
+jobs:
+
+  package-upload:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        project:
+        - TestLib
+        - TestLib.Other
+    steps:
+    - uses: actions/checkout@v2
+
+    # build
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        source-url: https://nuget.pkg.github.com/tadmccorkle/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build projects
+      run: dotnet build --no-restore /p:Configuration=CI
+
+    # publish nuget package
+    - name: Publish the package to GPR
+      run: dotnet nuget push src/${{ matrix.project }}/bin/CI/*.nupkg
+
+  documentation-upload:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # build
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build projects
+      run: dotnet build --no-restore /p:Configuration=CI
+
+    # build docs
+    - name: Install DocFX with Chocolatey
+      uses: crazy-max/ghaction-chocolatey@v1.6.0
+      with:
+        args: install docfx
+    - name: DocFX Build
+      run: docfx docfx.json
+
+    # publish docs
+    - name: Publish to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3.7.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: _site
