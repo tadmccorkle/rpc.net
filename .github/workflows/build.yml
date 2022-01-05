@@ -26,7 +26,7 @@ jobs:
         node-version: '14'
     - name: Install 'lcov-result-merger'
       run: npm i -g lcov-result-merger
-    - name: Merge Test coverage
+    - name: Merge Test Coverage
       run: lcov-result-merger "tests/**/coverage*.info" "lcov.info"
 
     # upload code coverage
