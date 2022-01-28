@@ -41,17 +41,8 @@ jobs:
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
       run: |
-        $nupkgs = dir "src\**\bin\CI\*.nupkg" -Recurse
-        foreach ($nupkg in $nupkgs) {
-          $nupkgName = ($nupkg.BaseName -split '\.\d+\.\d+\.\d+$')[0]
-          $nupkgVersion = $nupkg.BaseName -match '\d+\.\d+\.\d+$' | %{ $Matches[0] }
-          try {
-            $publishedVersions = (Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/$nupkgName/index.json").Content
-            if ( $publishedVersions -match "$nupkgVersion" ) {
-              continue
-            }
-          } catch { }
-          dotnet nuget push -k $env:NUGET_API_KEY -s https://api.nuget.org/v3/index.json $nupkg.FullName
+        dir "src\**\bin\CI\*.nupkg" -Recurse | % {
+          dotnet nuget push -k $env:NUGET_API_KEY -s https://api.nuget.org/v3/index.json $_.FullName --skip-duplicate
         }
 
     # build and publish docs
