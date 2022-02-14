@@ -15,10 +15,11 @@ things look like on nuget.org.
 ## Contributing
 
 Need something else that this library doesn't do? Found a bug or have an idea
-for a potential feature enhancement? Want to help out? Check out
-[CONTRIBUTING.md](./CONTRIBUTING.md).
+for a potential feature enhancement? Want to help out? Sorry, this repo is just
+for testing GitHub features out.
 
 ## License
 
 This project is licensed under the BSD-3 Clause license. See the
-[LICENSE](./LICENSE) file for license terms.
+[LICENSE](https://github.com/tadmccorkle/rpc.net/blob/main/LICENSE)
+file for license terms.
