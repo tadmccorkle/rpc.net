@@ -13,15 +13,12 @@
       "is_incremental": false
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
-      "source_relative_path": "README.md",
+      "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "README.html",
-          "hash": "g1McDfVLh2CcmWbJMrXjOF1NoNku8+OGP4UBLX+f6HA="
+          "relative_path": "index.html",
+          "hash": "CXgLz48D707G+VcnqnlM6UCD5Jm4j+uJAUZ0HxYRnNE="
         }
       },
       "is_incremental": false,
@@ -88,15 +85,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "5Q5Rl/XSmmNah+h5dphFuRZ3hxqWe5P+6EYr4wmIfRI="
+          "hash": "LyZwS+CQgxFo043NFKbwlYvFWwEnWWAkrFtTwTB/DuE="
         }
       },
       "is_incremental": false,

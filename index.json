@@ -19,8 +19,8 @@
     "title": "Namespace TestLib.Other | TestLib",
     "keywords": "Namespace TestLib.Other Classes Class1 This is a summary of the class."
   },
-  "README.html": {
-    "href": "README.html",
+  "index.html": {
+    "href": "index.html",
     "title": "Test lib | TestLib",
     "keywords": "Test lib Library Type Current Version Tad.M.TestLib Base Library Tad.M.TestLib.Other Other Library This is some test text that wraps multiple lines that will be used to see what things look like on nuget.org. Contributing Need something else that this library doesn't do? Found a bug or have an idea for a potential feature enhancement? Want to help out? Check out CONTRIBUTING.md . License This project is licensed under the BSD-3 Clause license. See the LICENSE file for license terms."
   }
