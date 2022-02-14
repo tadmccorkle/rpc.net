@@ -22,7 +22,7 @@
         "dest": "api"
       },
       {
-        "files": ["toc.yml", "README.md"]
+        "files": ["toc.yml", "index.md"]
       }
     ],
     "resource": [],
