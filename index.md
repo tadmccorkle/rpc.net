@@ -1,1 +1,1 @@
-# Test lib
+[!include[README](./README.md)]
